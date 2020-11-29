@@ -267,15 +267,15 @@ void close()
     fclose(file);
 }
 
-void drawCircle(long center_x, long center_y, size_t radius, colour color)
+void drawCircle(long center_x, long center_y, int radius, colour color)
 {
     drawCircle_point((struct point){center_x, center_y},radius,color);
 }
-void drawCircle_point(struct point center, size_t radius, struct ColorBit color)
+void drawCircle_point(struct point center, int radius, struct ColorBit color)
 {
-    for(size_t x = center.x - radius; x <= center.x + radius; ++x)
+    for(int x = (int)(center.x) - radius; x <= center.x + radius; ++x)
     {
-        size_t y = center.y - radius;
+        int y = center.y - radius;
         while(y <= center.y + radius)
         {
             if(sqr_t(x-center.x) + sqr_t(y-center.y) < radius*radius)
@@ -348,8 +348,8 @@ void drawRectangle_point(point UpperLeftCorner, size_t width, size_t height, col
         drawRectangle_point((struct point){UpperLeftCorner.x - border, UpperLeftCorner.y + border}, width + border, height + border, WHITE, 0);
         return;
     }
-    for(int x = 0; x >= -(int)width; --x)
+    for(int x = 0; x < (int)width; ++x)
         for(int y = 0; y >= -(int)height; --y)
-            if(x >= -border || x <= -width+border || y >= -border || y <= -height+border)
+            if(x <= border || x >= width-border || y >= -border || y <= -height+border)
                 paintPixel(UpperLeftCorner.x + x,UpperLeftCorner.y + y,color);
 }
