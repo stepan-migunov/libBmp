@@ -85,8 +85,8 @@ void paintPixel_point(struct point dot, struct ColorBit color);
 
 ///DRAWING:
 ///Draws Circle with given center, radius and color
-void drawCircle(long center_x, long center_y, size_t radius, colour color);
-void drawCircle_point(struct point center, size_t radius, struct ColorBit color);
+void drawCircle(long center_x, long center_y, int radius, colour color);
+void drawCircle_point(struct point center, int radius, struct ColorBit color);
 
 
 ///DRAWING:
