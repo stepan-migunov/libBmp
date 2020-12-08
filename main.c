@@ -1,7 +1,6 @@
 #include <stdio.h>
 #include "bmpDrawing.h"
 
-
 void fractal(int x1, int y1, int x2, int y2, int level)
 {
     if (level == 0)
